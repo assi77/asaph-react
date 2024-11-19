@@ -1,35 +1,45 @@
 import React from 'react';
 import '../css/box.css'
 import { useEffect, useState } from 'react';
+import {db} from './firebase-config'
+import {collection, getDocs} from 'firebase/firestore'
+import Depense from './Depense';
 
 const Box = () => {
+    const clientCollectionRef = collection(db, 'clientAsaph');
+    
+
     
     const [data, setData] = useState([])
+    
+
     useEffect(() =>{
-        fetch("http://localhost:8081/command")
-        .then(res => res.json())
-        .then(data => {
-            setData(data)
-        })
-        .catch(err =>console.log() );
+        
+        const getClient = async () => {
+            const data = await getDocs(clientCollectionRef);
+            setData(data.size)
+            }
+            getClient();
+
       },[])
 
     return (
         <div className='home'>
             <div className='contener-box'>
                 <div className='box'>
-                    <p>{data.length}<br/><span>Commandes</span></p>
+                    <p>{data}<br/><span>Commandes</span></p>
                     <i className='fa-solid fa-users icon-1'></i>
                 </div>
             </div>
             <div className='contener-box'>
                 <div className='box'>
-                    <p>{data.length} <br/><span>Retraits en cours</span></p>
+                    <p>{data} <br/><span>Retraits en cours</span></p>
                     <i className='fa-solid fa-bar-chart icon-1'></i>
                 </div>
             </div><div className='contener-box'>
                 <div className='box'>
-                    <p>83<br/><span>Commade Valider</span></p>
+               
+                    <p><Depense /><br/><span>Commade Valider</span></p>
                     <i className='fas fa-wallet icon-1'></i>
                 </div>
             </div>

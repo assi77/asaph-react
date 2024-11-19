@@ -24,7 +24,7 @@
  /**************************resutat css******************/
 
 .sidebar .text {
-    font-size: 16px;
+    font-size: 12px;
     font-family: 500;
     color: var(--text-color);
     transition: var(--tran-03);
@@ -111,15 +111,15 @@ opacity: 1;
     top: 50px;
     right: -25px;
     transform: translateY(-50px) rotate(180deg);
-    height: 25px;
-    width: 25px;
+    height: 16px;
+    width: 16px;
     background-color: var(--primary-color);
     display: flex;
     align-items: center;
     justify-content: center;
     border-radius: 50%;
     color: var(--sidebar-color);
-    font-size: 22px;
+    font-size: 13px;
     transition: var(--tran-03);
     cursor: pointer;
  }
@@ -130,9 +130,13 @@ opacity: 1;
  .conteneur.dark .sidebar header .toggle{
    color: var(--text-color);
  }
+
  .sidebar .search-box{
     border-radius: 6px;
     background: var(--primary-color-light);
+ }
+ .conteneur.dark input[type]{
+  color: #ddd;
  }
  .search-box input{
     height: 100%;
@@ -228,7 +232,7 @@ opacity: 1;
    min-width: 60px;
    cursor: pointer;
    border-radius: 6px;
-   background: var(--primary-color-light);
+   background:#b3b3ae;
 
  }
  .toggle-switch .switch{
@@ -236,7 +240,7 @@ opacity: 1;
    height: 22px;
    width: 44px;
    border-radius: 25px;
-   background: var(--toggle-color);
+   background: #dddd;
  }
  .switch::before{
    content: "";
@@ -247,7 +251,7 @@ opacity: 1;
    top: 50%;
    left: 5px;
    transform: translateY(-50%);
-   background: var(--sidebar-color);
+   background: #707070;
    cursor: pointer;
    transition: var(--tran-03);
  }
@@ -257,4 +261,10 @@ opacity: 1;
  .conteneur.dark .switch::before{
    left: 24px;
  }
- 
+
+ @media screen and (max-width: 750px){
+    .sidebar{
+      display: none;
+    }
+    
+ }

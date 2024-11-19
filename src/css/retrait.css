@@ -39,8 +39,8 @@
     text-align: center;
     padding: 15px 0;
     cursor: pointer;
-    font-weight: 6000;
-    font-size: 17px;
+    font-weight: 500;
+    font-size: 12px;
 }
 .conteneur.dark .tabs h3{
     background-color: #7e7c7c;
@@ -87,21 +87,21 @@
     justify-content: space-between;
     align-items: center;
     padding: 10px;
-    font-size: 16px;
+    font-size: 12px;
     color: var(--text-color);
     font-weight: 100;
 
 }
 .div6 .p1{
     background-color: rgb(161, 194, 246);
-    font-size: 17px;
+    font-size: 12px;
     padding: 15px;
     border-radius: 6px;
     color: #695cFF;
 }
 .div6 .p2{
     background-color: rgb(161, 246, 161);
-    font-size: 17px;
+    font-size: 12px;
     padding: 15px;
     border-radius: 6px;
     color: #695cFF;
@@ -110,7 +110,7 @@ p button{
     background-color: #bcb9b9;
     padding: 10px;
     border-radius: 12px;
-    font-size: 16px;
+    font-size: 12px;
     color: white;
     cursor: pointer;
     border: none;

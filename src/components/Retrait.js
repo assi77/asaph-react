@@ -1,26 +1,31 @@
 import React, { useEffect, useState } from 'react';
 import '../css/retrait.css'
-import axios from 'axios';
+
+import {db} from './firebase-config'
+import {collection, getDocs, doc, deleteDoc} from 'firebase/firestore'
 
 const Retrait = () => {
+    const clientCollectionRef = collection(db, 'clientAsaph');
+
     const [tabs , setTabs] =useState(1);
     const toggleTabs = (index)=>{
     setTabs(index);
     }
     const [data, setData] = useState([])
     useEffect(() =>{
-        fetch("http://localhost:8081/command")
-        .then(res => res.json())
-        .then(data => {
-            setData(data)
-        })
-        .catch(err =>console.log() );
+        const getClient = async () => {
+            const data = await getDocs(clientCollectionRef);
+            setData(data.docs.map((doc) => ({...doc.data(), id: doc.id})))
+            }
+            getClient();
+
       },[])
 
       const suprimer = async (id)=>{
         try{
-            await axios.delete(` http://localhost:8081/delete/`+id)
-            window.location.reload()
+              const clientDoc = doc(db, "clientAsaph", id)
+                await deleteDoc(clientDoc)
+                window.location.reload()
         }catch(err){
             console.log(err);
         }

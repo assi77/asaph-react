@@ -3,35 +3,51 @@ import '../css/box.css'
 import React from 'react';
 import { Chart as Chartjs } from 'chart.js/auto';
 import { Bar, Doughnut } from 'react-chartjs-2';
+import {db} from './firebase-config'
+import {collection, getDocs} from 'firebase/firestore'
 
 const Compte = () => {
+    const clientCollectionRef = collection(db, 'clientAsaph');
+
    
     const [data1, setData] = useState([])
+    const [dat, setDat] = useState([])
+    var sum = 0;
+
     useEffect(() =>{
-        fetch("http://localhost:8081/command")
-        .then(res => res.json())
-        .then(data1 => {
-            setData(data1)
-        })
-        .catch(err =>console.log() );
+        const getClient = async () => {
+            const data = await getDocs(clientCollectionRef);
+            setData(data.docs.map((doc) => ({...doc.data(), id: doc.id})))
+            }
+            getClient();
+            //affichier le nombre des commande
+
+            const getCount = async () => {
+                const dat = await getDocs(clientCollectionRef);
+                setDat(dat.size)
+                }
+                getCount();
+
+                
+
       },[])
 
     return (
         <div className='home'>
         <div className='contener-box'>
                 <div className='box'>
-                    <p>{data1.length}<br/><span>Revenue</span></p>
+                    <p>{dat}<br/><span>Revenue</span></p>
                     <i className='fa-solid fa-bar-chart icon-1'></i>
                 </div>
             </div>
             <div className='contener-box'>
                 <div className='box'>
-                    <p>{data1.length}<br/><span>Depense</span></p>
+                    <p>{sum}<br/><span>Depense</span></p>
                     <i className='fas fa-wallet icon-1'></i>
                 </div>
             </div><div className='contener-box'>
                 <div className='box'>
-                    <p>{data1.length}<br/><span>Chiffre d Affaire</span></p>
+                    <p>{dat}<br/><span>Chiffre d Affaire</span></p>
                     <i className='fas fa-wallet icon-1'></i>
                 </div>
             </div>

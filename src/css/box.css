@@ -10,14 +10,14 @@
 .box{
     width: 95%;
     height: 100px;
-    background-color: #fff;
+    background-color: #cfcecedd;
     padding: 10px;
     margin-left: 10px;
     border-radius: 10px;
 }
 .box p{
-    font-size: 35px;
-    color: #c4bbbb;
+    font-size: 30px;
+    color: #b4b0b0;
     font-weight: bold;
     line-height: 30px;
     padding-left: 10px;
@@ -29,12 +29,12 @@
     color: #fff;
 }
 .box p span{
-    font-size: 20px;
+    font-size: 12px;
     font-weight: 400;
     color: #818181;
 }
 .box .icon-1{
-    font-size: 40px!important;
+    font-size: 16px!important;
     float: right;
     margin-top: 35px!important;
     padding-right: 10px;
@@ -76,8 +76,7 @@
     border-collapse: collapse;
     width: 100%;
  }
- .conteneur.dark td , th{
-    text-align: left;
+ .conteneur.dark td ,tr th{
     padding: 15px;
     color: #fff;
     border-bottom: 1px solid #81818149 ;
@@ -114,9 +113,7 @@
     position: absolute;
     border-radius: 50%;
  }
- .circle-wrap .circle mask{
-    /*clip: rect(0px, 150px, 150px, 75px);*/
- }
+ 
  .circle-wrap .circle mask .fill{
     clip: rect(0px, 75px, 150px, 0px);
     background-color: #f7403b;

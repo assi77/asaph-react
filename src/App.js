@@ -12,25 +12,29 @@ import Client from './components/Client';
 import Retrait from './components/Retrait';
 import Compte from './components/Compte';
 
+import { Provider } from 'react-redux';
+import store from './components/redux/store';
 
 const App = () => {
   const current1 = localStorage.getItem('current1')
+
+  const current2 = localStorage.getItem('current2')
+
   const [theme, setTheme] = useState( current1 ? current1 :'light');
+
+  const [close, setClose] = useState( current2 ? current2 :'close');
   useEffect ( ()=>{
     localStorage.setItem('current1', theme);
-  },[theme])
 
-  const togglekey = localStorage.getItem('togglekey');
+    localStorage.setItem('current2', close);
+  },[theme, close])
 
-  const [close , setClose]= useState(togglekey ? togglekey :false);
 
-  useEffect(()=>{
-    localStorage.setItem('togglekey', close);
-    
-},[close])
 
   return (
     <div className={`conteneur ${theme} ${close}`}>
+      <Provider   store={store}>
+
       <Router>
         <Menue  theme={theme} setTheme={setTheme} close={close} setClose={setClose}/>
           <Routes>
@@ -43,6 +47,9 @@ const App = () => {
           </Routes>
         </Router>
 
+      </Provider>
+      
+  
       </div>
   
   );

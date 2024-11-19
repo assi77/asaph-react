@@ -2,7 +2,19 @@ import React, { useState } from 'react';
 import { NavLink }from 'react-router-dom';
 import '../css/menue.css'
 
+//connecte la bar de recherche creee avec redux
+
+import { useDispatch } from 'react-redux';
+import { setSearchTerm } from './redux/SearchSlice';
+
+
 const Menue = ({theme , setTheme, close , setClose}) => {
+
+     const dispatch = useDispatch();
+    
+    const handleSearchChange = (e) => {
+        dispatch(setSearchTerm(e.target.value)); // Met à jour l'état Redux avec la saisie
+      };
     
     const toggle =()=>{
         theme === 'light' ? setTheme('dark') : setTheme('light');
@@ -33,7 +45,7 @@ const Menue = ({theme , setTheme, close , setClose}) => {
             <div class="menu">
                 <li class="search-box">
                         <i class="fa-solid fa-search icon"></i>
-                        <input type="search" placeholder="Search..."/>
+                        <input type="search" placeholder="Search..." onChange={handleSearchChange} />
                 </li>
                 <ul class="menu-links">
                     <li class="nav-link">

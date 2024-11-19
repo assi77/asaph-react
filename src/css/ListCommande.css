@@ -10,7 +10,7 @@
 }
 .tTable table{
     border-collapse: collapse;
-    width: 100rem;
+    width: 100%;
     
 
  }
@@ -25,15 +25,17 @@
     margin: .8rem auto;
     border-radius: .6rem;
     overflow: auto;
-    font-size: 16px;
+    font-size: 12px;
     overflow: overlay;
 }
 
  .tTable table th,
  td {
-    border-bottom: 1px solid #dddd;
+    border-bottom: 1px solid #c7c6c6dd;
     text-align: center;
-    padding: 10px 20px;
+    padding: 5px 5px;
+    color: #707070;
+   
 }
 .tTable thead th {
     position: sticky;
@@ -41,7 +43,7 @@
     background-color: black;
     color: #fff;
     font-weight: 600;
-    font-size: 20px;
+    font-size: 12px;
 }
  .tTable::-webkit-scrollbar{
     width: 0.5rem;
@@ -56,28 +58,32 @@
     visibility: visible;
 }
 td i{
-    width: 36px;
-    height: 36px;
-    font-size: 50px;
+    width: 25px;
+    height: 25px;
+    font-size: 25px;
     margin-right: 5rem;
     border-radius: 50px;
 
     vertical-align: middle;
 }
 td .sup{
-    font-size: 20PX;
+
+    font-size: 12PX;
     color: red;
+
+    vertical-align: middle;
 }
 table, th, td{
     text-align: center;
     border-collapse: collapse;
-    padding: 1rem;
+    padding: 5px;
 }
+
 thead th{
     position: sticky;
     top: 0;
     left: 0;
-    background-color: #d5d1defe;
+    background-color: #b7b6bbfe;
 }
 tbody tr:nth-child(even){
     background-color: #0000000b;
@@ -89,7 +95,8 @@ tbody tr:nth-child(even){
 
 
 tbody tr:hover{
-    background-color: #ddd !important;
+    background-color: #ddd6d6 !important;
+    color: white !important;
 }
 
 
